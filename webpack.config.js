@@ -1,8 +1,8 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './public/index.tsx',
+  entry: './src/index.tsx',
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'build'),
@@ -22,16 +22,52 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/i,
-        use: ['babel-loader', 'ts-loader'],
-        exclude: '/node-modules',
+        use: ['babel-loader'],
+        exclude: '/node_modules',
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
       },
       {
         test: /\.css$/,
+        exclude: /\.module\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+        ],
+        type: 'javascript/auto',
+      },
+      {
+        test: /\.module\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[local]__[hash:base64:5]',
+              },
+            },
+          },
+        ],
       },
     ],
   },
   resolve: {
+    alias: {
+      '@assets': path.resolve(process.cwd(), 'src/assets'),
+      '@components': path.resolve(process.cwd(), 'src/components'),
+      '@src': path.resolve(process.cwd(), 'src'),
+    },
     extensions: ['.tsx', '.ts', '.js'],
   },
-};
+}

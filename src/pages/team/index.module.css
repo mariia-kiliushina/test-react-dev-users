@@ -1,0 +1,13 @@
+.header {
+  display: grid;
+  grid-auto-flow: column;
+  column-gap: 10px;
+  align-items: center;
+  grid-template-columns: 200px auto min-content;
+  padding: 20px 30px;
+  border-bottom: 1px solid var(--grey5);
+}
+
+.users {
+  padding-bottom: 15px;
+}

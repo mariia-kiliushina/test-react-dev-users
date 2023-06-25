@@ -1,0 +1,58 @@
+.user {
+  display: grid;
+  grid-template-areas:
+    'avatar name email'
+    'avatar permissions permissions';
+  grid-template-columns: 64px max-content 1fr;
+  column-gap: 12px;
+  padding: 20px 30px;
+  row-gap: 8px;
+  position: relative;
+}
+
+.notAuthorized {
+  background-color: var(--grey0);
+}
+
+.avatar {
+  grid-area: avatar;
+  grid-row: span 2;
+}
+
+.name {
+  grid-area: name;
+  color: var(--grey100);
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.authorizationStatus {
+  grid-area: authorizationStatus;
+  color: var(--grey50);
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.email {
+  grid-area: email;
+  color: var(--grey50);
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.permissions {
+  grid-area: permissions;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: start;
+  column-gap: 8px;
+  white-space: nowrap;
+}
+
+.optionsButton {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}

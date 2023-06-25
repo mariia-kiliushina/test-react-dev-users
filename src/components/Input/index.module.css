@@ -1,0 +1,21 @@
+.input {
+  border: 1px solid var(--grey10);
+  padding-left: 8px 12px;
+  background-color: transparent;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  color: var(--grey50);
+}
+
+.mediumSize {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+.largeSize {
+  height: 60px;
+  padding: 0 20px;
+  border-radius: 15px;
+}
